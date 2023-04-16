@@ -22,11 +22,11 @@ export const LoginForm = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <label>
                 Email
-                <input type="email" {...register("email", { required: true, maxLength: 20 })}/>
+                <input type="email" {...register("email", { required: true, maxLength: 50 })}/>
             </label>
             <label>
                 Password
-                <input type="password" {...register("password", { required: true, maxLength: 20 })}/>
+                <input type="password" {...register("password", { required: true, maxLength: 50 })}/>
             </label>
             <button type="submit">Login</button>
         </form>
