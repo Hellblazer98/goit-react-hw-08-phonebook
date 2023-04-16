@@ -5,8 +5,8 @@ import * as Yup from 'yup';
 import { FormField, Form, ErrorMessage, SubmitBtn } from './ContactForm.styled';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 
 
 const ContactShema = Yup.object().shape({

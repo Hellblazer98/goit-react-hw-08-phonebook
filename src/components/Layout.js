@@ -1,8 +1,16 @@
-import styled from "styled-components";
+import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import { Toaster } from 'react-hot-toast';
+import { AppBar } from './AppBar/AppBar';
 
-export const Layout = styled.section`
-    display: flex;
-    flex-direction: column;
-    background-color: #e7ecf2;
-    padding: 50px;
-`
+export const Layout = () => {
+  return (
+    <div>
+      <AppBar/>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+      <Toaster position="top-right" reverseOrder={false} />
+    </div>
+  );
+};
