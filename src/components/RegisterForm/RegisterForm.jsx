@@ -2,13 +2,13 @@ import { Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux"
 import { registerFetch } from "redux/auth/operations";
-import { selectError } from "redux/auth/selectors";
+import { selectErrorReg } from "redux/auth/selectors";
 import { Form, Input } from "./RegisterForm.styled";
 
 
 
 export const RegisterForm = () => {
-    const error = useSelector(selectError)
+    const error = useSelector(selectErrorReg)
     const dispatch = useDispatch();
     const { register, handleSubmit, resetField } = useForm();
 

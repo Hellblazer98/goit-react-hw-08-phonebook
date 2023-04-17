@@ -6,7 +6,8 @@ const initialState = {
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
-    error: null
+    errorRegister: null,
+    errorLogin: null
 };
 
 const authSlice = createSlice({
@@ -32,6 +33,14 @@ const authSlice = createSlice({
             .addCase(refreshUser.rejected, state => {
                 state.isRefreshing = false;
             })
+            // case for error register
+            .addCase(registerFetch.rejected, (state, action) => {
+                state.errorRegister = action.payload;
+            })
+            // case for error login
+            .addCase(logIn.rejected, (state, action) => {
+                state.errorLogin = action.payload;
+            })
             // mather for register & login
             .addMatcher(
                 isAnyOf(registerFetch.fulfilled, logIn.fulfilled),
@@ -39,11 +48,7 @@ const authSlice = createSlice({
                     state.user = action.payload.user;
                     state.token = action.payload.token;
                     state.isLoggedIn = true;
-                })
-            .addMatcher(
-                isAnyOf(registerFetch.rejected, logIn.rejected),
-                (state, action) => {
-                    state.error = action.payload;
+                    state.error = null;
                 })
     
 });

@@ -3,11 +3,11 @@ import { Form, Input } from "components/RegisterForm/RegisterForm.styled";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux"
 import { logIn } from "redux/auth/operations";
-import { selectError } from "redux/auth/selectors";
+import { selectErrorLogin } from "redux/auth/selectors";
 
 
 export const LoginForm = () => {
-    const error = useSelector(selectError);
+    const error = useSelector(selectErrorLogin);
     const dispatch = useDispatch();
     const { register, handleSubmit, resetField } = useForm();
 
