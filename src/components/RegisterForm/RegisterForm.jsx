@@ -1,9 +1,9 @@
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux"
 import { registerFetch } from "redux/auth/operations";
 import { selectError } from "redux/auth/selectors";
-import { Form } from "./RegisterForm.styled";
+import { Form, Input } from "./RegisterForm.styled";
 
 
 
@@ -27,14 +27,14 @@ export const RegisterForm = () => {
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
             {error ?
-                <TextField
+                <Input
                     error
                     required
                     id="outlined-error"
                     label="Name"
                     type="text" {...register("name", { required: true, maxLength: 20 })}
                 /> :
-                <TextField
+                <Input
                     required
                     id="outlined-required"
                     label="Name"
@@ -42,7 +42,7 @@ export const RegisterForm = () => {
                 />}
             
             {error ?
-                <TextField
+                <Input
                     error
                     width='280'
                     required
@@ -51,7 +51,7 @@ export const RegisterForm = () => {
                     type="email" {...register("email", { required: true, maxLength: 50 })}
 
                 /> :
-                <TextField
+                <Input
                     required
                     width='280'
                     id="outlined-required"
@@ -59,7 +59,7 @@ export const RegisterForm = () => {
                     type="email" {...register("email", { required: true, maxLength: 50 })}
                 />}
             {error ?
-                <TextField
+                <Input
                     error
                     required
                     id="outlined-error"
@@ -67,7 +67,7 @@ export const RegisterForm = () => {
                     type="Password" {...register("password", { required: true, maxLength: 50 })}
                     helperText="A user with that email address already exists"
                 /> :
-                <TextField
+                <Input
                     required
                     id="outlined-required"
                     label="Password"

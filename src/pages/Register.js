@@ -1,4 +1,5 @@
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { TitleReg } from 'components/RegisterForm/RegisterForm.styled';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
@@ -9,6 +10,7 @@ const Register = () => {
                 <Helmet>
                     <title>Registration</title>
                 </Helmet>
+                <TitleReg>Please enter your data to sign up</TitleReg>
                 <RegisterForm />
             </div>
         </HelmetProvider>

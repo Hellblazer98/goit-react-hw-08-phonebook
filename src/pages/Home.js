@@ -1,9 +1,10 @@
+import { TitleReg } from "components/RegisterForm/RegisterForm.styled";
 
 const Home = () => {
 
     return (
         <div>
-            <h1>Title</h1>
+            <TitleReg>Welcome to the PhoneBook! Please login or register to access the functionality</TitleReg>
         </div>
     )
 };

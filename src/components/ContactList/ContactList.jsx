@@ -1,18 +1,18 @@
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import { selectVisibleContacts } from 'redux/contacts/selectors';
-import { List, ListItem } from './ContactList.styled';
+import { ItemStyled, ListStyled } from './ContactList.styled';
 
 export const ContactsList = () => {
   const contacts = useSelector(selectVisibleContacts);
     return (
-        <List>
+        <ListStyled sx={{ width: '100%', maxWidth: 320, margin: 'auto'}}>
             {contacts.map(contact => (
-                <ListItem key={contact.id}>
+                <ItemStyled key={contact.id}>
                     <ContactItem contact={contact}/>
-                </ListItem>
+                </ItemStyled>
             ))}
-        </List>
+        </ListStyled>
     )
 }
 

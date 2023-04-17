@@ -1,41 +1,54 @@
 import styled from "styled-components";
-import { Form as FormikForm, ErrorMessage as FormikError } from "formik";
+import { Form as FormikForm, ErrorMessage as FormikError, Field } from "formik";
 
 export const Form = styled(FormikForm)`
-    width: 400px;
     padding: 8px;
-    border: 1px solid #2a2a2a;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
     border-radius: 12px;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const FormField = styled.label`
     display: flex;
     flex-direction: column;
-    font-weight: 600;
+    color: #757575;
+    font-weight: 500;
+    font-size: 20px;
 `;
+
+export const FormLabel = styled.span`
+  display: block;
+  margin-bottom: 20px;
+  color: #757575;
+  font-weight: 500;
+  font-size: 20px;
+`;
+
+export const InputContact = styled(Field)`
+    display: block;
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    width: 238px;
+
+    @media screen and (min-width: 481px) {
+        width: 298px;
+    }
+
+    :focus {
+        outline-color: #f50057;
+    }
+`
 
 export const ErrorMessage = styled(FormikError)`
     color: tomato;
+    font-size: 13px;
 `
 
-export const SubmitBtn = styled.button`
-    width: 200px;
-    border-radius: 8px;
-    border: 1px solid black;
-    padding: 5px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: white;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-
-    :hover {
-        background-color: tomato;
-    }
-`

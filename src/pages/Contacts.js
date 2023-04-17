@@ -7,6 +7,8 @@ import { Filter } from 'components/Filter/Filter';
 import { Loader } from 'components/Loader/Loader';
 import { ContactsList } from 'components/ContactList/ContactList';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { TitleReg } from 'components/RegisterForm/RegisterForm.styled';
+import { TitleContact } from 'components/Filter/Filter.styled';
 
 
 
@@ -25,9 +27,9 @@ const Contacts = () => {
             <Helmet>
                 <title>Contacts</title>
             </Helmet>
-            <h1>Phonebook</h1>
+            <TitleReg>Please enter your details to add a contact</TitleReg>
             <ContactsForm />
-            <h2>Contacts</h2>
+            <TitleContact>Contacts</TitleContact>
             <Filter />
             {isLoading ? <Loader />
                 : error ? <p>{error}</p>

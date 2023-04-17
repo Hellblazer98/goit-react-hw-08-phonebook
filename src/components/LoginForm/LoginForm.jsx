@@ -1,9 +1,13 @@
+import { Button } from "@mui/material";
+import { Form, Input } from "components/RegisterForm/RegisterForm.styled";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { logIn } from "redux/auth/operations";
+import { selectError } from "redux/auth/selectors";
 
 
 export const LoginForm = () => {
+    const error = useSelector(selectError);
     const dispatch = useDispatch();
     const { register, handleSubmit, resetField } = useForm();
 
@@ -19,16 +23,41 @@ export const LoginForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <label>
-                Email
-                <input type="email" {...register("email", { required: true, maxLength: 50 })}/>
-            </label>
-            <label>
-                Password
-                <input type="password" {...register("password", { required: true, maxLength: 50 })}/>
-            </label>
-            <button type="submit">Login</button>
-        </form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            {error ?
+                <Input
+                    error
+                    width='280'
+                    required
+                    id="outlined-error"
+                    label="Email"
+                    type="email" {...register("email", { required: true, maxLength: 50 })}
+
+                /> :
+                <Input
+                    required
+                    width='280'
+                    id="outlined-required"
+                    label="Email"
+                    type="email" {...register("email", { required: true, maxLength: 50 })}
+                />}
+            {error ?
+                <Input
+                    error
+                    required
+                    id="outlined-error"
+                    label="Email"
+                    type="Password" {...register("password", { required: true, maxLength: 50 })}
+                    helperText="Invalid e-mail or password"
+                /> :
+                <Input
+                    required
+                    id="outlined-required"
+                    label="Password"
+                    type="password" {...register("password", { required: true, maxLength: 50 })}
+                />}
+            
+            <Button variant="contained" type="submit">Login</Button>
+        </Form>
     )
 }

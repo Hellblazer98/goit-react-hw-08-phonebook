@@ -1,23 +1,28 @@
 import PropTypes from 'prop-types';
-import { BsPersonLinesFill, BsFillPersonXFill } from 'react-icons/bs';
+import { IoMdTrash } from 'react-icons/io';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { DeleteBtn } from './ContactItem.styled';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import { stringAvatar } from 'components/UserMenu/getAvatarColor';
+import IconButton from '@mui/material/IconButton';
+
 
 export const ContactItem = ({ contact: { id, name, number } }) => {
     const dispatch = useDispatch();
 
     return (
         <>
-            <BsPersonLinesFill size="20"/>
-            <span>{name}: </span>
-            <span>{number}</span>
-            <DeleteBtn type='button' onClick={() => dispatch(deleteContact(id))}>
-                <BsFillPersonXFill size="15" />
-                <span>Delete</span>
-            </DeleteBtn>
+            <ListItemAvatar>
+                <Avatar {...stringAvatar(name.toString())} />
+            </ListItemAvatar>
+            <ListItemText primary={name} secondary={number} />
+            <IconButton aria-label="delete" size="large" type='button' onClick={() => dispatch(deleteContact(id))}>
+                <IoMdTrash size="20"/>
+            </IconButton>
         </>
-    )
+    );
 };
 
 ContactItem.propTypes = {

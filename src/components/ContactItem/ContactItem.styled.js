@@ -5,7 +5,6 @@ export const DeleteBtn = styled.button`
     align-items: center;
     justify-content: center;
     gap: 5px;
-    width: 100px;
     padding: 5px;
     border: 1px solid black;
     border-radius: 4px;
@@ -15,4 +14,5 @@ export const DeleteBtn = styled.button`
         background-color: tomato;
     }
 
-`
+`;
+
