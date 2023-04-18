@@ -46,7 +46,7 @@ export const LoginForm = () => {
                     error
                     required
                     id="outlined-error"
-                    label="Email"
+                    label="Password"
                     type="Password" {...register("password", { required: true, maxLength: 50 })}
                     helperText="Invalid e-mail or password"
                 /> :
